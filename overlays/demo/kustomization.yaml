@@ -1,0 +1,9 @@
+namespace: demo-k8s-demo
+namePrefix: demo-
+bases:
+ - ../../application
+ - ../../infrastructure
+
+patchesStrategicMerge:
+  - webapplication.yml
+  - ingress.yml

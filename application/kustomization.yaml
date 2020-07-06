@@ -1,0 +1,5 @@
+resources:
+  - pvc.yml
+  - webapplication.yml
+  - service.yml
+  - ingress.yml

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: demo.fileserver.local
+      http:
+        paths:
+          - backend:
+              serviceName: webapplication.demo-k8s-demo
+              servicePort: 80
+    - host: prod.fileserver.local
+      http:
+        paths:
+          - backend:
+              serviceName: webapplication.prod-k8s-demo
+              servicePort: 80

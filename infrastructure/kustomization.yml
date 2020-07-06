@@ -1,0 +1,3 @@
+resources:
+  - storageclass-proxy.yml
+  - volume-proxy.yml

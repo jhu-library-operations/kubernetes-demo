@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  annotations:
+    monitoring: "true"
+  labels:
+    dummy: word
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapplication
+  template:
+    metadata:
+      labels:
+        app: webapplication
+    spec:
+      containers:
+      - name: webapplication
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: /usr/share/nginx/html
+            name: volume-test
+      volumes:
+        - name: volume-test
+          persistentVolumeClaim:
+            claimName: kubernetes-demo-proxy
