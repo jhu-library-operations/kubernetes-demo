@@ -1,4 +1,4 @@
-namespace: prod-k8s-demo
+namespace: prod-webapplication
 namePrefix: prod-
 bases:
  - ../../application
@@ -7,3 +7,6 @@ bases:
 patchesStrategicMerge:
   - webapplication.yml
   - ingress.yml
+
+resources:
+  - namespace.yml
