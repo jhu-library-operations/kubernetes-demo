@@ -1,5 +1,5 @@
 # kubernetes-demo
-
+```
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -227,3 +227,4 @@ spec:
     requests:
       storage: 1Gi
   storageClassName: kubernetes-demo-proxy
+```
