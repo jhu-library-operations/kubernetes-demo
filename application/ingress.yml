@@ -7,11 +7,14 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  rules:
-    - host: demo.fileserver.local
-      http:
-        paths:
-          - backend:
-              serviceName: webapplication
-              servicePort: 80
-            
+    backend:
+      serviceName: webapplication
+      servicePort: 80
+    rules:
+      - http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                serviceName: webapplication
+                servicePort: 80

@@ -2,12 +2,12 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: ingress
-spec:
-  rules:
-    - host: demo.fileserver.local
-      http:
-        paths:
-          - backend:
-              serviceName: webapplication
-              servicePort: 80
-            
+spec:    
+    rules:
+      - http:
+          paths:
+            - path: /demo
+              pathType: Prefix
+              backend:
+                serviceName: webapplication
+                servicePort: 80

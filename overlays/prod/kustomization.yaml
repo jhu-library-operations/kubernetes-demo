@@ -10,6 +10,7 @@ bases:
 patchesStrategicMerge:
   - webapplication.yml
   - ingress.yml
+  - pvc.yaml
 
 resources:
   - namespace.yml

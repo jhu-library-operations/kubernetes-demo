@@ -3,11 +3,11 @@ kind: Ingress
 metadata:
   name: ingress
 spec:
-  rules:
-    - host: prod.fileserver.local
-      http:
-        paths:
-          - backend:
-              serviceName: webapplication
-              servicePort: 80
-            
+    rules:
+      - http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                serviceName: webapplication
+                servicePort: 80
